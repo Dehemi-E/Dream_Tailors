@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://127.0.0.1:8000/welcome#home -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies</title>
+    <link href="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #1f1f1f;
+            --accent-copper: #b97d5e;
+            --text-dark: #222222;
+            --text-light: #ffffff;
+            --text-muted: #888888;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        ul { list-style: none; }
+        img { width: 100%; height: auto; display: block; object-fit: cover; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header {
+            position: absolute; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 25px 0; transition: background 0.3s ease;
+        }
+        header.sticky {
+            position: fixed; background: rgba(20, 20, 20, 0.95);
+            padding: 15px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-wrapper { display: flex; flex-direction: column; align-items: center; color: var(--text-light); }
+        .logo-wrapper i { font-size: 18px; margin-bottom: 2px; color: var(--accent-copper); }
+        .logo { font-family: var(--font-serif); font-size: 26px; font-weight: 700; letter-spacing: 2px; }
+        .desktop-nav { display: flex; gap: 30px; align-items: center; }
+        .desktop-nav a { color: var(--text-light); font-size: 11px; font-weight: 600; letter-spacing: 2.5px; }
+        .desktop-nav a:hover, .desktop-nav li.active a { color: var(--accent-copper); }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; }
+        .menu-toggle span { width: 25px; height: 2px; background-color: var(--text-light); transition: all 0.3s ease; }
+
+        /* Hero */
+        .hero {
+            height: 100vh; min-height: 700px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center top;
+            display: flex; justify-content: center; align-items: center; text-align: center;
+            color: var(--text-light); padding-top: 80px;
+        }
+        .hero-content h1 { font-family: var(--font-serif); font-size: 120px; font-weight: 400; line-height: 1; margin-bottom: 10px; position: relative; display: inline-block; }
+        .hero-content h1 span { font-size: 40px; position: absolute; top: 15px; right: -45px; color: var(--accent-copper); }
+        .hero-content h2 { font-size: 20px; font-weight: 400; letter-spacing: 7px; text-transform: uppercase; margin-bottom: 15px; }
+        .hero-content p { font-family: var(--font-serif); font-style: italic; font-size: 16px; color: #dcdcdc; }
+
+        /* Info Cards */
+        .info-cards-section { background-color: #ffffff; transform: translateY(-80px); margin-bottom: -40px; position: relative; z-index: 10; }
+        .info-cards-grid { display: grid; grid-template-columns: 7fr 5fr; box-shadow: 0 15px 50px rgba(0,0,0,0.08); }
+        .hours-card { background-color: #2c2c2c; color: var(--text-light); padding: 50px 60px; }
+        .hours-card h3 { font-size: 14px; letter-spacing: 3px; margin-bottom: 20px; font-weight: 600; }
+        .hours-card p { color: #aaa; font-size: 13px; margin-bottom: 30px; max-width: 500px; }
+        .hours-list { display: flex; flex-direction: column; gap: 12px; }
+        .hours-row { display: flex; justify-content: space-between; font-size: 13px; border-bottom: 1px solid #3a3a3a; padding-bottom: 8px; }
+        .hours-row span:last-child { color: var(--accent-copper); }
+        .phone-card { background-color: #ffffff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 50px; }
+        .phone-card .phone-icon { font-size: 32px; color: var(--accent-copper); margin-bottom: 20px; }
+        .phone-card h3 { font-size: 22px; font-weight: 400; letter-spacing: 1px; margin-bottom: 10px; }
+        .phone-card a { font-family: var(--font-serif); font-style: italic; font-size: 14px; color: var(--accent-copper); border-bottom: 1px solid var(--accent-copper); padding-bottom: 2px; }
+
+        /* Gallery */
+        .quality-section { padding: 60px 0 90px 0; text-align: center; }
+        .quality-section .tagline { font-family: var(--font-serif); font-style: italic; color: var(--accent-copper); font-size: 16px; margin-bottom: 5px; }
+        .quality-section h2 { font-size: 26px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 50px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .gallery-item { position: relative; overflow: hidden; aspect-ratio: 3/4; background-color: #eee; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: grayscale(1); }
+        .gallery-item:hover img { transform: scale(1.06); filter: grayscale(0); }
+
+        /* Testimonial */
+        .testimonial-section { background-color: #222222; color: var(--text-light); padding: 90px 0; text-align: center; }
+        .testimonial-section h2 { font-size: 16px; letter-spacing: 4px; margin-bottom: 30px; font-weight: 500; }
+        .testimonial-content { max-width: 800px; margin: 0 auto; }
+        .testimonial-content p { font-family: var(--font-serif); font-style: italic; font-size: 20px; line-height: 1.8; color: #dddddd; margin-bottom: 30px; }
+        .author-name { font-size: 12px; letter-spacing: 3px; font-weight: 600; color: var(--accent-copper); }
+
+        /* 🟢 VIDEO SECTION - FULL COVER, NO GAPS, NO LOGO/MENU */
+        .video-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            max-height: 900px;
+            background-color: #000;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* YouTube iframe - ZOOMED & CROPPED to hide logo/menu */
+        .video-wrapper iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* 16:9 */
+            min-height: 100vh;
+            min-width: 177.77vh; /* 16:9 inverse */
+            transform: translate(-50%, -50%) scale(1.3); /* Zoom to crop edges */
+            border: none;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .video-wrapper iframe {
+                transform: translate(-50%, -50%) scale(1.8);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-wrapper iframe {
+                transform: translate(-50%, -50%) scale(2.2);
+            }
+        }
+
+        /* Cover to block clicks */
+        .video-cover {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 2;
+            background: transparent;
+            cursor: default;
+        }
+
+        /* Poster */
+        .video-poster {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 3;
+            transition: opacity 0.8s ease;
+        }
+        .video-poster.hidden { opacity: 0; pointer-events: none; }
+        .video-poster::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Play Button */
+        .play-btn-large {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 4;
+            width: 80px; height: 80px;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            color: #ffffff; font-size: 24px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(5px);
+            transition: all 0.4s ease;
+            padding-left: 4px;
+        }
+        .play-btn-large:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background-color: var(--accent-copper);
+            border-color: var(--accent-copper);
+        }
+
+        /* Video Info */
+        .video-info-overlay {
+            position: absolute;
+            bottom: 40px; left: 40px;
+            z-index: 4;
+            color: #ffffff;
+        }
+        .video-info-overlay.hidden { opacity: 0; transition: opacity 0.5s ease; }
+        .video-info-overlay h3 {
+            font-family: var(--font-serif);
+            font-size: 22px; font-weight: 400;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .video-info-overlay p {
+            font-size: 11px; letter-spacing: 3px;
+            text-transform: uppercase; opacity: 0.8;
+        }
+
+        /* Contact */
+        .contact-section { padding: 100px 0; background-color: #ffffff; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+        .contact-form-side h2, .contact-info-side h2 { font-size: 22px; letter-spacing: 3px; margin-bottom: 25px; font-weight: 500; text-transform: uppercase; }
+        .contact-info-side p { color: var(--text-muted); font-size: 14px; margin-bottom: 40px; max-width: 450px; }
+        .form-group { margin-bottom: 20px; }
+        .form-control { width: 100%; padding: 14px 0; border: none; border-bottom: 1px solid #cccccc; font-family: inherit; font-size: 13px; outline: none; transition: border-color 0.3s ease; }
+        .form-control:focus { border-bottom-color: var(--accent-copper); }
+        textarea.form-control { resize: none; height: 100px; }
+        .submit-btn { background-color: var(--accent-copper); color: var(--text-light); border: none; padding: 15px 35px; font-size: 12px; font-weight: 600; letter-spacing: 2px; cursor: pointer; transition: background 0.3s ease; margin-top: 15px; text-transform: uppercase; }
+        .submit-btn:hover { background-color: #a36b4f; }
+        .info-details-list { display: flex; flex-direction: column; gap: 20px; }
+        .info-detail-item { display: flex; align-items: flex-start; gap: 15px; font-size: 14px; }
+        .info-detail-item i { color: var(--accent-copper); margin-top: 4px; width: 20px; }
+        .info-detail-item span { color: #555555; }
+
+        /* Map */
+        .map-wrapper { height: 400px; width: 100%; background-color: #eaeaea; position: relative; overflow: hidden; }
+        .map-bg { width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1200'); background-size: cover; filter: grayscale(1) brightness(0.95); opacity: 0.4; }
+        .map-overlay-marker { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+        .map-overlay-marker i { font-size: 36px; color: var(--accent-copper); }
+
+        /* Footer */
+        footer { background-color: #1a1a1a; color: var(--text-light); padding: 80px 0 30px 0; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 2fr 2fr; gap: 50px; border-bottom: 1px solid #2a2a2a; padding-bottom: 60px; margin-bottom: 30px; }
+        .footer-col h3 { font-size: 13px; letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase; font-weight: 600; }
+        .footer-col.brand-col h2 { font-family: var(--font-serif); font-size: 22px; letter-spacing: 1px; margin-bottom: 15px; }
+        .footer-col.brand-col p { font-size: 13px; color: #888888; margin-bottom: 30px; max-width: 280px; }
+        .newsletter-box { display: flex; border-bottom: 1px solid #3a3a3a; padding-bottom: 5px; max-width: 280px; }
+        .newsletter-box input { background: transparent; border: none; outline: none; color: var(--text-light); font-size: 12px; flex: 1; padding: 5px 0; }
+        .newsletter-box button { background: transparent; border: none; color: #888888; cursor: pointer; padding: 0 10px; }
+        .newsletter-box button:hover { color: var(--accent-copper); }
+        .tweet-item { margin-bottom: 15px; font-size: 13px; color: #888888; line-height: 1.5; }
+        .tweet-item a { color: var(--accent-copper); }
+        .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 260px; }
+        .insta-thumb { aspect-ratio: 1; overflow: hidden; background-color: #333; }
+        .insta-thumb img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; }
+        .insta-thumb:hover img { opacity: 0.8; }
+        .bottom-bar { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #555555; letter-spacing: 1px; }
+        .scroll-top { width: 35px; height: 35px; border: 1px solid #333; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.3s; }
+        .scroll-top:hover { background-color: var(--accent-copper); border-color: var(--accent-copper); color: var(--text-light); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-content h1 { font-size: 90px; }
+        }
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .desktop-nav {
+                position: fixed; top: 0; right: -100%; width: 75%; height: 100vh;
+                background-color: rgba(20, 20, 20, 0.98);
+                flex-direction: column; justify-content: center; gap: 40px;
+                transition: right 0.4s ease; box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+            }
+            .desktop-nav.active { right: 0; }
+            .info-cards-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 70px; }
+            .hero-content h1 span { font-size: 28px; top: 10px; right: -32px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hours-card { padding: 40px 30px; }
+            .play-btn-large { width: 65px; height: 65px; font-size: 20px; }
+            .video-info-overlay { bottom: 25px; left: 25px; }
+            .video-info-overlay h3 { font-size: 18px; }
+        }
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 55px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .play-btn-large { width: 55px; height: 55px; font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header" class="sticky">
+        <div class="container nav-container">
+            <div class="logo-wrapper">
+                <i class="fa-solid fa-crown"></i>
+                <div class="logo">B</div>
+            </div>
+            <div class="menu-toggle" id="mobile-toggle">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="desktop-nav" id="nav-list">
+                <li class="active"><a href="http://127.0.0.1:8000/welcome#home">HOME</a></li>
+                <li><a href="http://127.0.0.1:8000/welcome#about">ABOUT US</a></li>
+                <li><a href="http://127.0.0.1:8000/welcome#process">OUR PROCESS</a></li>
+                <li><a href="http://127.0.0.1:8000/welcome#gallery">GALLERY</a></li>
+                <li><a href="http://127.0.0.1:8000/welcome#pricing">PRICING</a></li>
+                <li><a href="http://127.0.0.1:8000/welcome#contact">CONTACT US</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>8+²<span>²</span></h1>
+            <h2>EXPERIENCED CUT</h2>
+            <p>Tailor for the Gentleman</p>
+        </div>
+    </section>
+
+    <section id="about" class="info-cards-section">
+        <div class="container">
+            <div class="info-cards-grid">
+                <div class="hours-card">
+                    <h3>WORKING HOURS</h3>
+                    <p>Premium tailored measurements and styling consultation sessions available within operational workshop timings.</p>
+                    <div class="hours-list">
+                                                <div class="hours-row"><span>Monday - Friday</span><span>9am - 6pm</span></div>
+                                                <div class="hours-row"><span>Saturday</span><span>9am - 1pm</span></div>
+                                                <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+                                            </div>
+                </div>
+                <div class="phone-card">
+                    <div class="phone-icon"><i class="fa-solid fa-phone-flip"></i></div>
+                    <h3>0022 658 77 985</h3>
+                    <a href="http://127.0.0.1:8000/welcome#contact">Book An Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="quality-section">
+        <div class="container">
+            <p class="tagline">Only The Best Materials</p>
+            <h2>AMAZING QUALITY</h2>
+            <div class="gallery-grid">
+                                <div class="gallery-item"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1594938298603-c8148c4dae35" alt="Elegant Men&#39;s Blazer Setup"></div>
+                                <div class="gallery-item"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1617137984095-74e4e5e3613f" alt="Men&#39;s Formal Styling"></div>
+                                <div class="gallery-item"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1598808503746-f34c53b9323e" alt="Ladies Tailored Tux"></div>
+                                <div class="gallery-item"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1507679799987-c73779587ccf" alt="Cuff and Hands Detail"></div>
+                                <div class="gallery-item"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/cheerful-model-sitting-floor-wearing-modern-oversize-black-jacket-creamy-long-dress-high-heel-shoes-her-feet-curly-hairstyle-makeup.jpg" alt="Fine Fabric Selection"></div>
+                                <div class="gallery-item"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1487222477894-8943e31ef7b2" alt="Womenswear Tailoring Fitting"></div>
+                                <div class="gallery-item"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1621594500145-50aae0e04243" alt="Childrenswear Pattern Making"></div>
+                                <div class="gallery-item"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1585487000160-6ebcfceb0d03" alt="Children&#39;s Formal Vest &amp; Jacket"></div>
+                            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-section">
+        <div class="container testimonial-content">
+            <h2>TESTIMONIAL SAY</h2>
+            <p>"Perfect fit and excellent quality material. The tailoring process was professional and I am absolutely delighted with the results. Highly recommend BRIDGE Tailor."</p>
+            <div class="author-name">BY DAN PARKS</div>
+        </div>
+    </section>
+
+    <!-- 🟢 VIDEO SECTION - ZOOMED TO HIDE LOGO/MENU, FULL COVER -->
+    <section id="process" class="video-section">
+        <div class="video-wrapper" id="videoContainer">
+            <!-- YouTube iframe -->
+            <iframe id="youtubePlayer" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Sewing Epic B Roll (4K Video)" width="640" height="360" src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/RFFPS-TwXBI.html"></iframe>
+            <!-- Cover to block clicks -->
+            <div class="video-cover" id="videoCover" style="display: none;"></div>
+            <!-- Poster -->
+            <div class="video-poster" id="videoPoster" style="background-image: url(&#39;https://img.youtube.com/vi/RFFPS-TwXBI/maxresdefault.jpg&#39;);">
+                <div class="play-btn-large" id="playBtn"><i class="fa-solid fa-play"></i></div>
+                <div class="video-info-overlay" id="videoInfo">
+                    <h3>Our Tailoring Process</h3>
+                    <p>Watch the craftsmanship</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form-side">
+                    <h2>CONTACT ME</h2>
+                    <form id="contactForm">
+                        <div class="form-group"><input type="text" placeholder="Name" class="form-control" required=""></div>
+                        <div class="form-group"><input type="email" placeholder="Email" class="form-control" required=""></div>
+                        <div class="form-group"><textarea placeholder="Message" class="form-control" required=""></textarea></div>
+                        <button type="submit" class="submit-btn">SEND US A MESSAGE</button>
+                    </form>
+                </div>
+                <div class="contact-info-side">
+                    <h2>GET IN TOUCH</h2>
+                    <p>Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="info-details-list">
+                        <div class="info-detail-item"><i class="fa-solid fa-envelope"></i><span>info@bridgewp.com</span></div>
+                        <div class="info-detail-item"><i class="fa-solid fa-phone"></i><span>+0022 658 7799</span></div>
+                        <div class="info-detail-item"><i class="fa-solid fa-location-dot"></i><span>152 Custom Avenue, Tailor Street, London</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-wrapper">
+        <div class="map-bg"></div>
+        <div class="map-overlay-marker"><i class="fa-solid fa-location-pin-lock"></i></div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <h2>BRIDGE<span>Tailor</span></h2>
+                <p>Three decades of excellence in bespoke tailoring, crafting unique garments for discerning clients.</p>
+                <h3>GET OUR NEWSLETTER</h3>
+                <div class="newsletter-box">
+                    <input type="email" placeholder="Enter Your Email">
+                    <button type="button"><i class="fa-solid fa-arrow-right-long"></i></button>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>LATEST TWEETS</h3>
+                                <div class="tweet-item">Sign up for our #newsletter and get the latest dynamic updates in your inbox <a href="http://127.0.0.1:8000/welcome#">https://t.co/XGAfGd8eY</a></div>
+                                <div class="tweet-item">Explore our freshly introduced winter linen custom blazer series <a href="http://127.0.0.1:8000/welcome#">https://t.co/YhKmg2ZmO</a></div>
+                            </div>
+            <div class="footer-col">
+                <h3>INSTAGRAM</h3>
+                <div class="insta-grid">
+                                        <div class="insta-thumb"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1594938298603-c8148c4dae35(1)" alt="Men&#39;s Blue Suit Jacket"></div>
+                                        <div class="insta-thumb"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1617137984095-74e4e5e3613f(1)" alt="Elegant Suit Fitting Detail"></div>
+                                        <div class="insta-thumb"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1598808503746-f34c53b9323e(1)" alt="Women&#39;s Tailored Blazer Coat"></div>
+                                        <div class="insta-thumb"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1507679799987-c73779587ccf(1)" alt="Cufflinks on a Fine Shirt"></div>
+                                        <div class="insta-thumb"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1618220179428-22790b461013" alt="Choosing Fabric for Custom Order"></div>
+                                        <div class="insta-thumb"><img src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/photo-1585487000160-6ebcfceb0d03(1)" alt="Youth Collection Formal Suit"></div>
+                                    </div>
+            </div>
+        </div>
+        <div class="container bottom-bar">
+            <span>© Copyright Qode Interactive</span>
+            <div class="scroll-top" id="scrollTopBtn"><i class="fa-solid fa-chevron-up"></i></div>
+        </div>
+    </footer>
+
+    <!-- YouTube IFrame API -->
+    <script type="text/javascript" id="www-widgetapi-script" src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/www-widgetapi.js.download" async=""></script><script src="./BRIDGE Tailor - Experienced Cut - Bespoke Tailoring for Gentlemen &amp; Ladies_files/iframe_api"></script><script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player, isVideoPlaying = false, hasAutoPlayed = false;
+        var videoSection = document.getElementById('process');
+        var videoPoster = document.getElementById('videoPoster');
+        var videoCover = document.getElementById('videoCover');
+        var videoInfo = document.getElementById('videoInfo');
+        var playBtn = document.getElementById('playBtn');
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtubePlayer', {
+                videoId: 'RFFPS-TwXBI',
+                playerVars: {
+                    'autoplay': 0,
+                    'controls': 0,
+                    'disablekb': 1,
+                    'rel': 0,
+                    'showinfo': 0,
+                    'modestbranding': 1,
+                    'loop': 1,
+                    'playlist': 'RFFPS-TwXBI',
+                    'mute': 1,
+                    'fs': 0,
+                    'iv_load_policy': 3,
+                    'cc_load_policy': 0,
+                    'branding': 0
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            player.mute();
+            playBtn.addEventListener('click', function(e) { e.stopPropagation(); startVideo(); });
+            videoPoster.addEventListener('click', function(e) {
+                if (e.target === playBtn || playBtn.contains(e.target)) return;
+                startVideo();
+            });
+            setupScrollDetection();
+        }
+
+        function startVideo() {
+            if (player && player.playVideo) {
+                player.mute();
+                player.playVideo();
+                isVideoPlaying = true;
+                videoPoster.classList.add('hidden');
+                videoInfo.classList.add('hidden');
+                videoCover.style.display = 'block';
+                playBtn.style.display = 'none';
+                hasAutoPlayed = true;
+            }
+        }
+
+        function setupScrollDetection() {
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting && !hasAutoPlayed && player) {
+                            setTimeout(function() { startVideo(); }, 500);
+                        }
+                    });
+                }, { threshold: 0.4 });
+                observer.observe(videoSection);
+            } else {
+                window.addEventListener('scroll', function scrollCheck() {
+                    if (!hasAutoPlayed && player && isElementInViewport(videoSection)) {
+                        setTimeout(function() { startVideo(); }, 500);
+                        window.removeEventListener('scroll', scrollCheck);
+                    }
+                });
+            }
+        }
+
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            var wh = window.innerHeight || document.documentElement.clientHeight;
+            return (rect.top <= wh * 0.6 && rect.bottom >= wh * 0.3);
+        }
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            document.getElementById('main-header').classList.toggle('sticky', window.scrollY > 50);
+        });
+        document.getElementById('mobile-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('nav-list').classList.toggle('active');
+        });
+        document.querySelectorAll('.desktop-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-toggle').classList.remove('active');
+                document.getElementById('nav-list').classList.remove('active');
+            });
+        });
+        document.getElementById('scrollTopBtn').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Supiri! Your request has been transmitted successfully.');
+            this.reset();
+        });
+    </script>
+
+</body></html>
